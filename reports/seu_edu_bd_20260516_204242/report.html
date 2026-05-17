@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AutoRecon Report — seu.edu.bd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap');
+  :root {
+    --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+    --border: #30363d; --text: #c9d1d9; --text-dim: #8b949e;
+    --accent: #58a6ff; --green: #3fb950; --red: #f85149;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.6; }
+  code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--surface2); padding: 1px 4px; border-radius: 3px; word-break: break-all; }
+
+  .header { background: linear-gradient(135deg, #0d1117 0%, #161b22 100%); border-bottom: 1px solid var(--border); padding: 40px 48px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
+  .header .subtitle { color: var(--text-dim); margin-top: 8px; font-size: 13px; }
+  .meta-row { display: flex; gap: 32px; margin-top: 20px; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
+  .meta-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+  .container { max-width: 1400px; margin: 0 auto; padding: 32px 48px; }
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 18px; font-weight: 700; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px; }
+
+  .stats-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 28px; flex: 1; min-width: 120px; text-align: center; }
+  .stat-num { font-size: 36px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .stat-label { font-size: 12px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-total { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 28px; text-align: center; border-top: 3px solid var(--accent); }
+
+  .finding-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+  .finding-header { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: var(--surface2); flex-wrap: wrap; }
+  .finding-num { font-family: 'JetBrains Mono', monospace; color: var(--text-dim); font-size: 12px; min-width: 24px; }
+  .finding-title { font-weight: 600; flex: 1; }
+  .finding-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+  .finding-field { font-size: 13px; }
+  .finding-field b { color: var(--text-dim); margin-right: 8px; font-size: 11px; text-transform: uppercase; }
+  .remediation { background: rgba(63,185,80,0.08); border-radius: 4px; padding: 8px 12px; border-left: 2px solid var(--green); }
+
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #000; letter-spacing: 0.5px; }
+  .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 12px; margin: 2px; }
+  .tech-tag { border-color: var(--accent); color: var(--accent); }
+  .finding-source { font-size: 11px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--surface2); padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; color: var(--text-dim); border-bottom: 1px solid var(--border); }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+  tr:last-child td { border-bottom: none; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .list-item { padding: 6px 14px; border-bottom: 1px solid var(--border); font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+  .list-item:last-child { border-bottom: none; }
+  .url-item { word-break: break-all; }
+  .scroll-box { max-height: 400px; overflow-y: auto; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media(max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } .container { padding: 20px; } }
+
+  .no-findings { text-align: center; padding: 48px; color: var(--text-dim); }
+  .no-findings .icon { font-size: 48px; margin-bottom: 12px; }
+
+  nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 48px; display: flex; gap: 0; overflow-x: auto; }
+  nav a { padding: 14px 18px; color: var(--text-dim); text-decoration: none; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔍 AutoRecon Assessment Report</h1>
+  <div class="subtitle">Automated Reconnaissance &amp; Vulnerability Scan</div>
+  <div class="meta-row">
+    <div class="meta-item"><span class="meta-label">Target</span><span class="meta-value">https://seu.edu.bd</span></div>
+    <div class="meta-item"><span class="meta-label">Host</span><span class="meta-value">seu.edu.bd</span></div>
+    <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Subdomain</span></div>
+    <div class="meta-item"><span class="meta-label">Scan Start</span><span class="meta-value">2026-05-16T20:42:42.488844</span></div>
+    <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">47.2s</span></div>
+    <div class="meta-item"><span class="meta-label">Generated</span><span class="meta-value">2026-05-16 20:43</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="#summary" class="active">Summary</a>
+  <a href="#recon">Reconnaissance</a>
+  <a href="#crawl">Crawl Results</a>
+  <a href="#vulns">Vulnerabilities</a>
+</nav>
+
+<div class="container">
+
+  <!-- SUMMARY -->
+  <div class="section" id="summary">
+    <div class="section-title">Executive Summary</div>
+    <div class="stats-grid">
+      <div class="stat-total stat-card">
+        <div class="stat-num" style="color:var(--accent)">3</div>
+        <div class="stat-label">Total Findings</div>
+      </div>
+      <div class="stat-card" style="border-top:3px solid #ff4757"><div class="stat-num" style="color:#ff4757">0</div><div class="stat-label">Critical</div></div><div class="stat-card" style="border-top:3px solid #ff6b35"><div class="stat-num" style="color:#ff6b35">1</div><div class="stat-label">High</div></div><div class="stat-card" style="border-top:3px solid #ffd32a"><div class="stat-num" style="color:#ffd32a">1</div><div class="stat-label">Medium</div></div><div class="stat-card" style="border-top:3px solid #2ed573"><div class="stat-num" style="color:#2ed573">1</div><div class="stat-label">Low</div></div><div class="stat-card" style="border-top:3px solid #1e90ff"><div class="stat-num" style="color:#1e90ff">0</div><div class="stat-label">Info</div></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Subdomains</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Open Ports</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Technologies</div></div>
+      <div class="stat-card"><div class="stat-num">74</div><div class="stat-label">URLs Found</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">JS Files</div></div>
+      <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Parameters</div></div>
+    </div>
+  </div>
+
+  <!-- RECONNAISSANCE -->
+  <div class="section" id="recon">
+    <div class="section-title">Reconnaissance Findings</div>
+
+    <!-- Technologies -->
+    <div style="margin-bottom:24px">
+      <h3 style="margin-bottom:12px;font-size:14px;color:var(--text-dim)">DETECTED TECHNOLOGIES</h3>
+      <div><span class="tag tech-tag">Laravel</span><span class="tag tech-tag">jQuery</span><span class="tag tech-tag">Cloudflare</span><span class="tag tech-tag">Elasticsearch</span></div>
+    </div>
+
+    <div class="grid-2">
+      <!-- HTTP Headers -->
+      <div>
+        <h3 style="margin-bottom:12px;font-size:14px;color:var(--text-dim)">HTTP HEADERS</h3>
+        <div class="card">
+          <table>
+            <thead><tr><th>Header</th><th>Value</th></tr></thead>
+            <tbody><tr><td>Server</td><td><code>cloudflare</code></td></tr><tr><td>X-Frame-Options</td><td><code>SAMEORIGIN</code></td></tr><tr><td>X-XSS-Protection</td><td><code>1; mode=block</code></td></tr><tr><td>Content-Security-Policy</td><td><code>default-src 'self' https://seu.edu.bd https://*.seu.edu.bd https://status.seu-um</code></td></tr><tr><td>X-Content-Type-Options</td><td><code>nosniff</code></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Open Ports -->
+      <div>
+        <h3 style="margin-bottom:12px;font-size:14px;color:var(--text-dim)">OPEN PORTS (4)</h3>
+        <div class="card">
+          <table>
+            <thead><tr><th>Port</th><th>Protocol</th><th>Service</th></tr></thead>
+            <tbody><tr><td>80</td><td>TCP</td><td>HTTP</td></tr><tr><td>443</td><td>TCP</td><td>HTTPS</td></tr><tr><td>8080</td><td>TCP</td><td>HTTP-Proxy</td></tr><tr><td>8443</td><td>TCP</td><td>HTTPS-Alt</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subdomains -->
+    <div style="margin-top:24px"><h3 style="margin-bottom:12px;font-size:14px;color:var(--text-dim)">SUBDOMAINS (3)</h3><div class="card scroll-box"><div class="list-item">alpha.edu.bd</div><div class="list-item">api.edu.bd</div><div class="list-item">git.edu.bd</div></div></div>
+  </div>
+
+  <!-- CRAWL RESULTS -->
+  <div class="section" id="crawl">
+    <div class="section-title">Crawl &amp; Endpoint Discovery</div>
+
+    <!-- Parameters -->
+    <div style="margin-bottom:24px">
+      <h3 style="margin-bottom:12px;font-size:14px;color:var(--text-dim)">DISCOVERED PARAMETERS (0)</h3>
+      <div><span style="color:var(--text-dim)">None found</span></div>
+    </div>
+
+    <div class="grid-2">
+      <!-- URLs -->
+      <div>
+        <h3 style="margin-bottom:12px;font-size:14px;color:var(--text-dim)">URLS / ENDPOINTS (74)</h3>
+        <div class="card scroll-box"><div class="list-item url-item">https://seu.edu.bd</div><div class="list-item url-item">https://seu.edu.bd/analytics/page-time</div><div class="list-item url-item">https://seu.edu.bd/assets/images/call.svg</div><div class="list-item url-item">https://seu.edu.bd/assets/images/door.svg</div><div class="list-item url-item">https://seu.edu.bd/assets/images/error/403.png</div><div class="list-item url-item">https://seu.edu.bd/assets/images/error/404.png</div><div class="list-item url-item">https://seu.edu.bd/assets/images/error/search-not-found.png</div><div class="list-item url-item">https://seu.edu.bd/assets/images/error/southeast-503.png</div><div class="list-item url-item">https://seu.edu.bd/assets/images/error/southeast-coming-soon.png</div><div class="list-item url-item">https://seu.edu.bd/assets/images/mail.svg</div><div class="list-item url-item">https://seu.edu.bd/assets/images/news-ticker-icon.png</div><div class="list-item url-item">https://seu.edu.bd/assets/images/users/avatar_blue.png</div><div class="list-item url-item">https://seu.edu.bd/assets/libs/academicons-1.9.4/css/academicons.min.css</div><div class="list-item url-item">https://seu.edu.bd/bn/home</div><div class="list-item url-item">https://seu.edu.bd/build/assets/${n}</div><div class="list-item url-item">https://seu.edu.bd/build/assets/2-acros-img01-SR48-PCj.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/activity-DZCJGKsj.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/admission-hero-icon01-Ctgw7aVh.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/admission-hero-icon02-ImnU66aD.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/admission-hero-icon03-DJjJVn7Y.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/admission-news-01-Cmkejx0D.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/all-club-img01-DZvWLiHv.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/alumni-director-01-B2EGcNYk.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/app-1PgJIbNk.css</div><div class="list-item url-item">https://seu.edu.bd/build/assets/app-BL8J-2aA.css</div><div class="list-item url-item">https://seu.edu.bd/build/assets/app-C0yrJ2W-.js</div><div class="list-item url-item">https://seu.edu.bd/build/assets/authority-img01-DJqmYvBX.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/auto</div><div class="list-item url-item">https://seu.edu.bd/build/assets/campus-icon01-BvAOMr0v.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/campus-icon02-t4A4cw_1.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/campus-icon03-D-MCIUV5.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/card_down-C_irDjqH.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/card_down_for_mobile-zXh2X_ER.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/card_up-1NroWKTF.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/card_up_for_mobile-crWZuIJ-.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/club-activity-01-CQN5Js_t.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/content-2acros-opt02-8wv86eHT.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/content-4-across-img01-C38Il-7S.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/default-album-thumbnail-CtQ6uQDX.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/dept-gallery-01-Cqoa0vlf.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/dept-gallery-02-Njd2denT.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/dept-gallery-03-Bj4jyBRw.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/dept-gallery-04-Bi_RVRvj.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/dept-gallery-05-Bw9JN58Y.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/dept-gallery-06-B8HQvqMZ.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/director-01-C9qwdgWR.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/executive-committee-01-wyH9pZJk.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/footer-logo-JolSoofs.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/g-logo-DkFK489S.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/get-touch01-BkKIiJDu.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/get-touch02-1OXAZZU3.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/get-touch03-BXyFLFP6.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/hero-option03-img01-CTCBn_0A.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/hero-option03-img02-D_cLSE3D.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/hero-option03-img03-Dspjptr3.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/hero-video-img-BBLaSUp-.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/history-timeline-7FQVhY5K.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/history-timline2-BJ2PUgNR.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/icon-chair-ECAjkbHl.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/icon-mail-LDyQZTXH.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/icon-phone-D3lMWm_S.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/icon-telephone-DaHho-7I.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/m-logo-Pq05mHTX.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/new-badge-Cx9OmOmi.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/news-details-01-ConxM0KU.jpg</div><div class="list-item url-item">https://seu.edu.bd/build/assets/profile-01-DCMGatFs.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/profile-02-DzVZfX_a.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/qutation-PLPABy1L.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/register-profile-01-eRljYW1h.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/register-profile-02-C49Ficzh.png</div><div class="list-item url-item">https://seu.edu.bd/build/assets/top-banner-04-DprGKNnk.png</div><div class="list-item url-item">https://seu.edu.bd/cdn-cgi/challenge-platform/scripts/jsd/main.js</div><div class="list-item url-item">https://seu.edu.bd/home</div><div class="list-item url-item">https://seu.edu.bd/set-language</div></div>
+      </div>
+      <!-- JS Files -->
+      <div>
+        <h3 style="margin-bottom:12px;font-size:14px;color:var(--text-dim)">JAVASCRIPT FILES (3)</h3>
+        <div class="card scroll-box"><div class="list-item">https://seu.edu.bd/build/assets/app-C0yrJ2W-.js</div><div class="list-item">https://seu.edu.bd/cdn-cgi/challenge-platform/scripts/jsd/main.js</div><div class="list-item">https://seu.edu.bd/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VULNERABILITIES -->
+  <div class="section" id="vulns">
+    <div class="section-title">Vulnerability Findings (3 total)</div>
+    
+            <div class="finding-card" style="border-left:4px solid #ff6b35">
+              <div class="finding-header">
+                <span class="finding-num">#1</span>
+                <span class="badge" style="background:#ff6b35">HIGH</span>
+                <span class="finding-title">Missing Security Header: Strict-Transport-Security</span>
+                <span class="finding-source tag">custom</span>
+              </div>
+              <div class="finding-body">
+                <div class="finding-field"><b>URL</b> <code>https://seu.edu.bd</code></div>
+                <div class="finding-field"><b>Description</b> Missing HSTS header allows downgrade attacks.</div>
+                
+                <div class="finding-field remediation"><b>Remediation</b> Add: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload</div>
+              </div>
+            </div>
+            <div class="finding-card" style="border-left:4px solid #ffd32a">
+              <div class="finding-header">
+                <span class="finding-num">#2</span>
+                <span class="badge" style="background:#ffd32a">MEDIUM</span>
+                <span class="finding-title">Error/Stack Trace Disclosure: PHP notice</span>
+                <span class="finding-source tag">custom</span>
+              </div>
+              <div class="finding-body">
+                <div class="finding-field"><b>URL</b> <code>https://seu.edu.bd</code></div>
+                <div class="finding-field"><b>Description</b> PHP notice found in page response.</div>
+                <div class="finding-field"><b>Evidence</b> <code>Notice:</code></div>
+                <div class="finding-field remediation"><b>Remediation</b> Disable detailed error messages in production. Log errors server-side only.</div>
+              </div>
+            </div>
+            <div class="finding-card" style="border-left:4px solid #2ed573">
+              <div class="finding-header">
+                <span class="finding-num">#3</span>
+                <span class="badge" style="background:#2ed573">LOW</span>
+                <span class="finding-title">Missing Security Header: Permissions-Policy</span>
+                <span class="finding-source tag">custom</span>
+              </div>
+              <div class="finding-body">
+                <div class="finding-field"><b>URL</b> <code>https://seu.edu.bd</code></div>
+                <div class="finding-field"><b>Description</b> Missing Permissions-Policy allows uncontrolled browser feature access.</div>
+                
+                <div class="finding-field remediation"><b>Remediation</b> Add a Permissions-Policy header limiting camera, microphone, geolocation access.</div>
+              </div>
+            </div>
+  </div>
+
+</div>
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+      a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

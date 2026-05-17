@@ -1,0 +1,550 @@
+{
+  "target": {
+    "raw": "seu.edu.bd",
+    "host": "seu.edu.bd",
+    "scheme": "https",
+    "port": null,
+    "base_url": "https://seu.edu.bd",
+    "type": "Subdomain"
+  },
+  "scan_start": "2026-05-16T20:42:42.488844",
+  "recon": {
+    "dns": {
+      "A": [
+        "172.67.213.34"
+      ],
+      "MX": [
+        "seu.edu.bd\tmail exchanger = 1 aspmx.l.google.com.",
+        "seu.edu.bd\tmail exchanger = 10 alt3.aspmx.l.google.com.",
+        "seu.edu.bd\tmail exchanger = 10 alt4.aspmx.l.google.com.",
+        "seu.edu.bd\tmail exchanger = 20 mx.email-messaging.com.",
+        "seu.edu.bd\tmail exchanger = 5 alt1.aspmx.l.google.com."
+      ],
+      "NS": [
+        "Non-authoritative answer:",
+        "seu.edu.bd\tnameserver = lara.ns.cloudflare.com.",
+        "seu.edu.bd\tnameserver = norm.ns.cloudflare.com.",
+        "Authoritative answers can be found from:"
+      ]
+    },
+    "whois": {},
+    "subdomains": [
+      "git.edu.bd",
+      "alpha.edu.bd",
+      "api.edu.bd"
+    ],
+    "ports": [
+      {
+        "port": 80,
+        "service": "HTTP"
+      },
+      {
+        "port": 443,
+        "service": "HTTPS"
+      },
+      {
+        "port": 8080,
+        "service": "HTTP-Proxy"
+      },
+      {
+        "port": 8443,
+        "service": "HTTPS-Alt"
+      }
+    ],
+    "headers": {
+      "Date": "Sat, 16 May 2026 14:42:43 GMT",
+      "Content-Type": "text/html; charset=UTF-8",
+      "Transfer-Encoding": "chunked",
+      "Connection": "keep-alive",
+      "Server": "cloudflare",
+      "Content-Security-Policy": "default-src 'self' https://seu.edu.bd https://*.seu.edu.bd https://status.seu-ums.workers.dev https://www.google.com https://www.google.com.bd; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://challenges.cloudflare.com https://www.google-analytics.com https://www.googletagmanager.com https://static.cloudflareinsights.com https://www.google.com https://www.google.com.bd https://seu.edu.bd https://*.seu.edu.bd https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://cdn.lordicon.com https://code.jquery.com https://cdnjs.cloudflare.com https://ajax.googleapis.com https://ajax.aspnetcdn.com https://unpkg.com https://cdn.datatables.net https://cdn.retently.com; style-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com https://fonts.googleapis.com https://cdn.datatables.net https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com https://ajax.aspnetcdn.com https://www.youtube.com https://s.ytimg.com; img-src 'self' data: https://*.seu.edu.bd https://www.google.com https://www.google.com.bd https://static.cloudflareinsights.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://cdn.datatables.net https://i.ytimg.com; font-src 'self' data: https://stackpath.bootstrapcdn.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; frame-src https://challenges.cloudflare.com https://www.googletagmanager.com https://www.google.com https://www.google.com.bd https://www.youtube.com https://whm.seu.edu.bd; child-src https://challenges.cloudflare.com; worker-src blob:; connect-src 'self' https://challenges.cloudflare.com https://static.cloudflareinsights.com https://www.googletagmanager.com https://analytics.google.com https://status.seu-ums.workers.dev https://seu.edu.bd https://*.seu.edu.bd https://cdn.datatables.net https://mixpanel-proxy.cpanel.net https://api.monitoring360.io https://api.iconify.design; object-src 'none'; frame-ancestors 'self';",
+      "Vary": "Accept-Encoding, X-Inertia,Accept-Encoding",
+      "Cache-Control": "private, must-revalidate",
+      "pragma": "no-cache",
+      "expires": "-1",
+      "Set-Cookie": "XSRF-TOKEN=eyJpdiI6ImY0dHpnQXlxTWRRc2NLQzgya3RIaFE9PSIsInZhbHVlIjoiSm9zZGsxV0labTZHMnZPMEp4R1drRCtTOWhZY3NTOTd0aHF5SE5HNHJiOEMrVWsxd3M4U0FtZjFMbHI0c0wzVjJKZmt2d2tFYWZsRUVydkc3TlZ1SThTZW5zdkFnWENMTGVXM2lIOFBpZWpPV3JjeGJsYWNzYzRBMFlRTkpadjgiLCJtYWMiOiJhOWYyZTYwYWVkZjUwODgyMjY3MmE2ZTY2YTA3M2JmZTc1YmM2ODU5MGU0Njk1ZjIxYzlkNDAzNzlkYWQzYzZjIiwidGFnIjoiIn0%3D; expires=Sat, 16 May 2026 16:42:43 GMT; Max-Age=7200; path=/; secure; samesite=lax, southeast_university_session=eyJpdiI6InNyeUZLdW56K2lJNm5od2xmTmorbkE9PSIsInZhbHVlIjoiUUpuS2JmR3IwSEdMRllWRnBLdHM3OXdCN1dhbWJ6M3ZtT3F5VGZjVEFQNTFyc210TllMOUE0ZnArZ1NvS0xtamdscTZBaHNwN0pDNnY2TlRGTmJQaWtGTW43Y3JDeXg5ZDFZSkRydzcyVmVFYXV3aDBncXRCMkliMWNyZmFzZTUiLCJtYWMiOiI3ZGJhN2UzODU4OTJhNjJmNjhjZTUyM2E2NzE2ZDc1NGZiZWIzMzNlMjVkOGQ0NTE5NDI3M2VjYWJlNjFlMjVhIiwidGFnIjoiIn0%3D; expires=Sat, 16 May 2026 16:42:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax",
+      "x-xss-protection": "1; mode=block",
+      "cf-cache-status": "DYNAMIC",
+      "Speculation-Rules": "\"/cdn-cgi/speculation\"",
+      "Server-Timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=3,cfOrigin;dur=490",
+      "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=SxiYal1C5nABvPF%2F1iruNWzxYjBhkdthTYVwWsYrjv3ftLwc2IuiIz543c0YOy50gogfC6lN5mjJxhgycg91kiPwFwWpsrbjzD449yoxU3X1607dPsH2C9GAxeta\"}]}",
+      "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "expect-ct": "max-age=86400, enforce",
+      "referrer-policy": "same-origin",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "Content-Encoding": "gzip",
+      "CF-RAY": "9fcb268c4a3133d3-DAC",
+      "alt-svc": "h3=\":443\"; ma=86400"
+    },
+    "technologies": [
+      "Laravel",
+      "jQuery",
+      "Cloudflare",
+      "Elasticsearch"
+    ],
+    "certificates": {
+      "subject": {},
+      "issuer": {},
+      "version": null,
+      "notBefore": null,
+      "notAfter": null,
+      "subjectAltName": [],
+      "cipher": "TLS_AES_256_GCM_SHA384",
+      "tls_version": "TLSv1.3"
+    },
+    "interesting_files": [
+      {
+        "url": "https://seu.edu.bd/robots.txt",
+        "status": 200,
+        "size": 24,
+        "path": "/robots.txt"
+      },
+      {
+        "url": "https://seu.edu.bd/api",
+        "status": 200,
+        "size": 145337,
+        "path": "/api"
+      },
+      {
+        "url": "https://seu.edu.bd/sitemap.xml",
+        "status": 200,
+        "size": 124722,
+        "path": "/sitemap.xml"
+      },
+      {
+        "url": "https://seu.edu.bd/.well-known/security.txt",
+        "status": 200,
+        "size": 144440,
+        "path": "/.well-known/security.txt"
+      },
+      {
+        "url": "https://seu.edu.bd/api/v2",
+        "status": 200,
+        "size": 145341,
+        "path": "/api/v2"
+      },
+      {
+        "url": "https://seu.edu.bd/security.txt",
+        "status": 200,
+        "size": 144427,
+        "path": "/security.txt"
+      },
+      {
+        "url": "https://seu.edu.bd/swagger",
+        "status": 200,
+        "size": 145341,
+        "path": "/swagger"
+      },
+      {
+        "url": "https://seu.edu.bd/.env",
+        "status": 200,
+        "size": 145338,
+        "path": "/.env"
+      },
+      {
+        "url": "https://seu.edu.bd/humans.txt",
+        "status": 200,
+        "size": 144425,
+        "path": "/humans.txt"
+      },
+      {
+        "url": "https://seu.edu.bd/api/v1",
+        "status": 200,
+        "size": 145341,
+        "path": "/api/v1"
+      },
+      {
+        "url": "https://seu.edu.bd/swagger.json",
+        "status": 200,
+        "size": 145346,
+        "path": "/swagger.json"
+      },
+      {
+        "url": "https://seu.edu.bd/swagger-ui.html",
+        "status": 200,
+        "size": 145349,
+        "path": "/swagger-ui.html"
+      },
+      {
+        "url": "https://seu.edu.bd/.git/HEAD",
+        "status": 200,
+        "size": 145344,
+        "path": "/.git/HEAD"
+      },
+      {
+        "url": "https://seu.edu.bd/.htaccess",
+        "status": 403,
+        "size": 1971,
+        "path": "/.htaccess"
+      },
+      {
+        "url": "https://seu.edu.bd/openapi.json",
+        "status": 200,
+        "size": 145346,
+        "path": "/openapi.json"
+      },
+      {
+        "url": "https://seu.edu.bd/graphql",
+        "status": 200,
+        "size": 145341,
+        "path": "/graphql"
+      },
+      {
+        "url": "https://seu.edu.bd/api-docs",
+        "status": 200,
+        "size": 145342,
+        "path": "/api-docs"
+      },
+      {
+        "url": "https://seu.edu.bd/web.config",
+        "status": 200,
+        "size": 145344,
+        "path": "/web.config"
+      },
+      {
+        "url": "https://seu.edu.bd/phpinfo.php",
+        "status": 200,
+        "size": 145345,
+        "path": "/phpinfo.php"
+      },
+      {
+        "url": "https://seu.edu.bd/info.php",
+        "status": 200,
+        "size": 145342,
+        "path": "/info.php"
+      },
+      {
+        "url": "https://seu.edu.bd/server-info",
+        "status": 200,
+        "size": 145345,
+        "path": "/server-info"
+      },
+      {
+        "url": "https://seu.edu.bd/wp-login.php",
+        "status": 200,
+        "size": 145346,
+        "path": "/wp-login.php"
+      },
+      {
+        "url": "https://seu.edu.bd/administrator",
+        "status": 302,
+        "size": 822,
+        "path": "/administrator"
+      },
+      {
+        "url": "https://seu.edu.bd/server-status",
+        "status": 200,
+        "size": 145347,
+        "path": "/server-status"
+      },
+      {
+        "url": "https://seu.edu.bd/admin",
+        "status": 302,
+        "size": 822,
+        "path": "/admin"
+      },
+      {
+        "url": "https://seu.edu.bd/wp-admin",
+        "status": 302,
+        "size": 822,
+        "path": "/wp-admin"
+      },
+      {
+        "url": "https://seu.edu.bd/login",
+        "status": 200,
+        "size": 145339,
+        "path": "/login"
+      },
+      {
+        "url": "https://seu.edu.bd/phpmyadmin",
+        "status": 302,
+        "size": 822,
+        "path": "/phpmyadmin"
+      },
+      {
+        "url": "https://seu.edu.bd/config.php",
+        "status": 200,
+        "size": 145344,
+        "path": "/config.php"
+      },
+      {
+        "url": "https://seu.edu.bd/config.yml",
+        "status": 200,
+        "size": 145344,
+        "path": "/config.yml"
+      },
+      {
+        "url": "https://seu.edu.bd/config.yaml",
+        "status": 200,
+        "size": 145345,
+        "path": "/config.yaml"
+      },
+      {
+        "url": "https://seu.edu.bd/.DS_Store",
+        "status": 200,
+        "size": 145343,
+        "path": "/.DS_Store"
+      },
+      {
+        "url": "https://seu.edu.bd/crossdomain.xml",
+        "status": 200,
+        "size": 145349,
+        "path": "/crossdomain.xml"
+      },
+      {
+        "url": "https://seu.edu.bd/database.sql",
+        "status": 200,
+        "size": 145346,
+        "path": "/database.sql"
+      },
+      {
+        "url": "https://seu.edu.bd/backup.tar.gz",
+        "status": 200,
+        "size": 145347,
+        "path": "/backup.tar.gz"
+      },
+      {
+        "url": "https://seu.edu.bd/clientaccesspolicy.xml",
+        "status": 200,
+        "size": 145356,
+        "path": "/clientaccesspolicy.xml"
+      },
+      {
+        "url": "https://seu.edu.bd/backup.zip",
+        "status": 200,
+        "size": 145344,
+        "path": "/backup.zip"
+      }
+    ],
+    "missing_security_headers": [
+      "Strict-Transport-Security"
+    ],
+    "robots_disallowed": [
+      ""
+    ]
+  },
+  "crawl": {
+    "urls": [
+      "https://seu.edu.bd",
+      "https://seu.edu.bd/analytics/page-time",
+      "https://seu.edu.bd/assets/images/call.svg",
+      "https://seu.edu.bd/assets/images/door.svg",
+      "https://seu.edu.bd/assets/images/error/403.png",
+      "https://seu.edu.bd/assets/images/error/404.png",
+      "https://seu.edu.bd/assets/images/error/search-not-found.png",
+      "https://seu.edu.bd/assets/images/error/southeast-503.png",
+      "https://seu.edu.bd/assets/images/error/southeast-coming-soon.png",
+      "https://seu.edu.bd/assets/images/mail.svg",
+      "https://seu.edu.bd/assets/images/news-ticker-icon.png",
+      "https://seu.edu.bd/assets/images/users/avatar_blue.png",
+      "https://seu.edu.bd/assets/libs/academicons-1.9.4/css/academicons.min.css",
+      "https://seu.edu.bd/bn/home",
+      "https://seu.edu.bd/build/assets/${n}",
+      "https://seu.edu.bd/build/assets/2-acros-img01-SR48-PCj.png",
+      "https://seu.edu.bd/build/assets/activity-DZCJGKsj.png",
+      "https://seu.edu.bd/build/assets/admission-hero-icon01-Ctgw7aVh.png",
+      "https://seu.edu.bd/build/assets/admission-hero-icon02-ImnU66aD.png",
+      "https://seu.edu.bd/build/assets/admission-hero-icon03-DJjJVn7Y.png",
+      "https://seu.edu.bd/build/assets/admission-news-01-Cmkejx0D.png",
+      "https://seu.edu.bd/build/assets/all-club-img01-DZvWLiHv.png",
+      "https://seu.edu.bd/build/assets/alumni-director-01-B2EGcNYk.jpg",
+      "https://seu.edu.bd/build/assets/app-1PgJIbNk.css",
+      "https://seu.edu.bd/build/assets/app-BL8J-2aA.css",
+      "https://seu.edu.bd/build/assets/app-C0yrJ2W-.js",
+      "https://seu.edu.bd/build/assets/authority-img01-DJqmYvBX.jpg",
+      "https://seu.edu.bd/build/assets/auto",
+      "https://seu.edu.bd/build/assets/campus-icon01-BvAOMr0v.png",
+      "https://seu.edu.bd/build/assets/campus-icon02-t4A4cw_1.png",
+      "https://seu.edu.bd/build/assets/campus-icon03-D-MCIUV5.png",
+      "https://seu.edu.bd/build/assets/card_down-C_irDjqH.png",
+      "https://seu.edu.bd/build/assets/card_down_for_mobile-zXh2X_ER.png",
+      "https://seu.edu.bd/build/assets/card_up-1NroWKTF.png",
+      "https://seu.edu.bd/build/assets/card_up_for_mobile-crWZuIJ-.png",
+      "https://seu.edu.bd/build/assets/club-activity-01-CQN5Js_t.png",
+      "https://seu.edu.bd/build/assets/content-2acros-opt02-8wv86eHT.jpg",
+      "https://seu.edu.bd/build/assets/content-4-across-img01-C38Il-7S.png",
+      "https://seu.edu.bd/build/assets/default-album-thumbnail-CtQ6uQDX.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-01-Cqoa0vlf.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-02-Njd2denT.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-03-Bj4jyBRw.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-04-Bi_RVRvj.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-05-Bw9JN58Y.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-06-B8HQvqMZ.jpg",
+      "https://seu.edu.bd/build/assets/director-01-C9qwdgWR.png",
+      "https://seu.edu.bd/build/assets/executive-committee-01-wyH9pZJk.png",
+      "https://seu.edu.bd/build/assets/footer-logo-JolSoofs.png",
+      "https://seu.edu.bd/build/assets/g-logo-DkFK489S.png",
+      "https://seu.edu.bd/build/assets/get-touch01-BkKIiJDu.png",
+      "https://seu.edu.bd/build/assets/get-touch02-1OXAZZU3.png",
+      "https://seu.edu.bd/build/assets/get-touch03-BXyFLFP6.png",
+      "https://seu.edu.bd/build/assets/hero-option03-img01-CTCBn_0A.png",
+      "https://seu.edu.bd/build/assets/hero-option03-img02-D_cLSE3D.png",
+      "https://seu.edu.bd/build/assets/hero-option03-img03-Dspjptr3.png",
+      "https://seu.edu.bd/build/assets/hero-video-img-BBLaSUp-.png",
+      "https://seu.edu.bd/build/assets/history-timeline-7FQVhY5K.png",
+      "https://seu.edu.bd/build/assets/history-timline2-BJ2PUgNR.png",
+      "https://seu.edu.bd/build/assets/icon-chair-ECAjkbHl.png",
+      "https://seu.edu.bd/build/assets/icon-mail-LDyQZTXH.png",
+      "https://seu.edu.bd/build/assets/icon-phone-D3lMWm_S.png",
+      "https://seu.edu.bd/build/assets/icon-telephone-DaHho-7I.png",
+      "https://seu.edu.bd/build/assets/m-logo-Pq05mHTX.png",
+      "https://seu.edu.bd/build/assets/new-badge-Cx9OmOmi.png",
+      "https://seu.edu.bd/build/assets/news-details-01-ConxM0KU.jpg",
+      "https://seu.edu.bd/build/assets/profile-01-DCMGatFs.png",
+      "https://seu.edu.bd/build/assets/profile-02-DzVZfX_a.png",
+      "https://seu.edu.bd/build/assets/qutation-PLPABy1L.png",
+      "https://seu.edu.bd/build/assets/register-profile-01-eRljYW1h.png",
+      "https://seu.edu.bd/build/assets/register-profile-02-C49Ficzh.png",
+      "https://seu.edu.bd/build/assets/top-banner-04-DprGKNnk.png",
+      "https://seu.edu.bd/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+      "https://seu.edu.bd/home",
+      "https://seu.edu.bd/set-language"
+    ],
+    "js_files": [
+      "https://seu.edu.bd/build/assets/app-C0yrJ2W-.js",
+      "https://seu.edu.bd/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+      "https://seu.edu.bd/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    ],
+    "parameters": [],
+    "forms": [],
+    "emails": [
+      "abu.nayeem@seu.edu.bd",
+      "adiba.murtaza@seu.edu.bd",
+      "admission@seu.edu.bd",
+      "aldin.masud@seu.edu.bd",
+      "ashraful@seu.edu.bd",
+      "asraful.islam@seu.edu.bd",
+      "director.it@seu.edu.bd",
+      "fahima.kabir@seu.edu.bd",
+      "info@seu.com",
+      "info@seu.edu.bd",
+      "israt.bulbul@seu.edu.bd",
+      "masud.rashid@seu.edu.bd",
+      "mijanur.rahman@seu.edu.bd",
+      "mjahid.mustofa@seu.edu.bd",
+      "moyinul.islam@seu.edu.bd",
+      "raihan.uddin@seu.edu.bd",
+      "rakib.it@seu.edu.bd",
+      "serajul.islam@seu.edu.bd",
+      "smanzoor@seu.edu.bd",
+      "sonia.zaman@seu.edu.bd",
+      "syed.monirul@seu.edu.bd",
+      "talukder.shahedul@seu.edu.bd",
+      "tarik.jalil@seu.edu.bd",
+      "thchowdhury@seu.edu.bd",
+      "you@company.com"
+    ],
+    "api_endpoints": [
+      "https://seu.edu.bd/analytics/page-time",
+      "https://seu.edu.bd/assets/images/call.svg",
+      "https://seu.edu.bd/assets/images/door.svg",
+      "https://seu.edu.bd/assets/images/error/403.png",
+      "https://seu.edu.bd/assets/images/error/404.png",
+      "https://seu.edu.bd/assets/images/error/search-not-found.png",
+      "https://seu.edu.bd/assets/images/error/southeast-503.png",
+      "https://seu.edu.bd/assets/images/error/southeast-coming-soon.png",
+      "https://seu.edu.bd/assets/images/mail.svg",
+      "https://seu.edu.bd/assets/images/news-ticker-icon.png",
+      "https://seu.edu.bd/assets/images/users/avatar_blue.png",
+      "https://seu.edu.bd/bn/home",
+      "https://seu.edu.bd/build/assets/2-acros-img01-SR48-PCj.png",
+      "https://seu.edu.bd/build/assets/activity-DZCJGKsj.png",
+      "https://seu.edu.bd/build/assets/admission-hero-icon01-Ctgw7aVh.png",
+      "https://seu.edu.bd/build/assets/admission-hero-icon02-ImnU66aD.png",
+      "https://seu.edu.bd/build/assets/admission-hero-icon03-DJjJVn7Y.png",
+      "https://seu.edu.bd/build/assets/admission-news-01-Cmkejx0D.png",
+      "https://seu.edu.bd/build/assets/all-club-img01-DZvWLiHv.png",
+      "https://seu.edu.bd/build/assets/alumni-director-01-B2EGcNYk.jpg",
+      "https://seu.edu.bd/build/assets/authority-img01-DJqmYvBX.jpg",
+      "https://seu.edu.bd/build/assets/campus-icon01-BvAOMr0v.png",
+      "https://seu.edu.bd/build/assets/campus-icon02-t4A4cw_1.png",
+      "https://seu.edu.bd/build/assets/campus-icon03-D-MCIUV5.png",
+      "https://seu.edu.bd/build/assets/card_down-C_irDjqH.png",
+      "https://seu.edu.bd/build/assets/card_down_for_mobile-zXh2X_ER.png",
+      "https://seu.edu.bd/build/assets/card_up-1NroWKTF.png",
+      "https://seu.edu.bd/build/assets/card_up_for_mobile-crWZuIJ-.png",
+      "https://seu.edu.bd/build/assets/club-activity-01-CQN5Js_t.png",
+      "https://seu.edu.bd/build/assets/content-2acros-opt02-8wv86eHT.jpg",
+      "https://seu.edu.bd/build/assets/content-4-across-img01-C38Il-7S.png",
+      "https://seu.edu.bd/build/assets/default-album-thumbnail-CtQ6uQDX.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-01-Cqoa0vlf.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-02-Njd2denT.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-03-Bj4jyBRw.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-04-Bi_RVRvj.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-05-Bw9JN58Y.jpg",
+      "https://seu.edu.bd/build/assets/dept-gallery-06-B8HQvqMZ.jpg",
+      "https://seu.edu.bd/build/assets/director-01-C9qwdgWR.png",
+      "https://seu.edu.bd/build/assets/executive-committee-01-wyH9pZJk.png",
+      "https://seu.edu.bd/build/assets/footer-logo-JolSoofs.png",
+      "https://seu.edu.bd/build/assets/g-logo-DkFK489S.png",
+      "https://seu.edu.bd/build/assets/get-touch01-BkKIiJDu.png",
+      "https://seu.edu.bd/build/assets/get-touch02-1OXAZZU3.png",
+      "https://seu.edu.bd/build/assets/get-touch03-BXyFLFP6.png",
+      "https://seu.edu.bd/build/assets/hero-option03-img01-CTCBn_0A.png",
+      "https://seu.edu.bd/build/assets/hero-option03-img02-D_cLSE3D.png",
+      "https://seu.edu.bd/build/assets/hero-option03-img03-Dspjptr3.png",
+      "https://seu.edu.bd/build/assets/hero-video-img-BBLaSUp-.png",
+      "https://seu.edu.bd/build/assets/history-timeline-7FQVhY5K.png",
+      "https://seu.edu.bd/build/assets/history-timline2-BJ2PUgNR.png",
+      "https://seu.edu.bd/build/assets/icon-chair-ECAjkbHl.png",
+      "https://seu.edu.bd/build/assets/icon-mail-LDyQZTXH.png",
+      "https://seu.edu.bd/build/assets/icon-phone-D3lMWm_S.png",
+      "https://seu.edu.bd/build/assets/icon-telephone-DaHho-7I.png",
+      "https://seu.edu.bd/build/assets/m-logo-Pq05mHTX.png",
+      "https://seu.edu.bd/build/assets/new-badge-Cx9OmOmi.png",
+      "https://seu.edu.bd/build/assets/news-details-01-ConxM0KU.jpg",
+      "https://seu.edu.bd/build/assets/profile-01-DCMGatFs.png",
+      "https://seu.edu.bd/build/assets/profile-02-DzVZfX_a.png",
+      "https://seu.edu.bd/build/assets/qutation-PLPABy1L.png",
+      "https://seu.edu.bd/build/assets/register-profile-01-eRljYW1h.png",
+      "https://seu.edu.bd/build/assets/register-profile-02-C49Ficzh.png",
+      "https://seu.edu.bd/build/assets/top-banner-04-DprGKNnk.png",
+      "https://seu.edu.bd/home",
+      "https://seu.edu.bd/set-language"
+    ],
+    "comments": [],
+    "pages_crawled": 7
+  },
+  "vuln": {
+    "findings": [
+      {
+        "title": "Missing Security Header: Strict-Transport-Security",
+        "severity": "high",
+        "description": "Missing HSTS header allows downgrade attacks.",
+        "url": "https://seu.edu.bd",
+        "evidence": "",
+        "remediation": "Add: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+        "source": "custom"
+      },
+      {
+        "title": "Missing Security Header: Permissions-Policy",
+        "severity": "low",
+        "description": "Missing Permissions-Policy allows uncontrolled browser feature access.",
+        "url": "https://seu.edu.bd",
+        "evidence": "",
+        "remediation": "Add a Permissions-Policy header limiting camera, microphone, geolocation access.",
+        "source": "custom"
+      },
+      {
+        "title": "Error/Stack Trace Disclosure: PHP notice",
+        "severity": "medium",
+        "description": "PHP notice found in page response.",
+        "url": "https://seu.edu.bd",
+        "evidence": "Notice:",
+        "remediation": "Disable detailed error messages in production. Log errors server-side only.",
+        "source": "custom"
+      }
+    ],
+    "summary": {
+      "critical": 0,
+      "high": 1,
+      "medium": 1,
+      "low": 1,
+      "info": 0
+    },
+    "total": 3
+  },
+  "scan_end": "2026-05-16T20:43:29.666999",
+  "scan_duration_seconds": 47.18
+}

@@ -1,0 +1,212 @@
+======================================================================
+  AUTORECON - VULNERABILITY ASSESSMENT REPORT
+======================================================================
+  Generated : 2026-05-16 20:43:29
+  Target    : https://seu.edu.bd
+  Host      : seu.edu.bd
+  Type      : Subdomain
+  Duration  : 47.2s
+======================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------------------------------------
+  Total Vulnerabilities : 3
+  High                  : 1
+  Medium                : 1
+  Low                   : 1
+  Subdomains Found      : 3
+  Open Ports            : 4
+  Technologies          : 4
+  URLs Discovered       : 74
+  JS Files              : 3
+  Parameters            : 0
+
+DNS INFORMATION
+----------------------------------------------------------------------
+  A         : 172.67.213.34
+  MX        : seu.edu.bd	mail exchanger = 1 aspmx.l.google.com.
+  MX        : seu.edu.bd	mail exchanger = 10 alt3.aspmx.l.google.com.
+  MX        : seu.edu.bd	mail exchanger = 10 alt4.aspmx.l.google.com.
+  NS        : Non-authoritative answer:
+  NS        : seu.edu.bd	nameserver = lara.ns.cloudflare.com.
+  NS        : seu.edu.bd	nameserver = norm.ns.cloudflare.com.
+
+SUBDOMAINS (3 found)
+----------------------------------------------------------------------
+  alpha.edu.bd
+  api.edu.bd
+  git.edu.bd
+
+OPEN PORTS (4 found)
+----------------------------------------------------------------------
+  80     (HTTP)
+  443    (HTTPS)
+  8080   (HTTP-Proxy)
+  8443   (HTTPS-Alt)
+
+DETECTED TECHNOLOGIES
+----------------------------------------------------------------------
+  + Laravel
+  + jQuery
+  + Cloudflare
+  + Elasticsearch
+
+HTTP HEADERS
+----------------------------------------------------------------------
+  Server                             : cloudflare
+  X-Frame-Options                    : SAMEORIGIN
+  X-XSS-Protection                   : 1; mode=block
+  Content-Security-Policy            : default-src 'self' https://seu.edu.bd https://*.seu.edu.bd h
+  X-Content-Type-Options             : nosniff
+
+INTERESTING PATHS (37 found)
+----------------------------------------------------------------------
+  [200] https://seu.edu.bd/robots.txt
+  [200] https://seu.edu.bd/api
+  [200] https://seu.edu.bd/sitemap.xml
+  [200] https://seu.edu.bd/.well-known/security.txt
+  [200] https://seu.edu.bd/api/v2
+  [200] https://seu.edu.bd/security.txt
+  [200] https://seu.edu.bd/swagger
+  [200] https://seu.edu.bd/.env
+  [200] https://seu.edu.bd/humans.txt
+  [200] https://seu.edu.bd/api/v1
+  [200] https://seu.edu.bd/swagger.json
+  [200] https://seu.edu.bd/swagger-ui.html
+  [200] https://seu.edu.bd/.git/HEAD
+  [403] https://seu.edu.bd/.htaccess
+  [200] https://seu.edu.bd/openapi.json
+  [200] https://seu.edu.bd/graphql
+  [200] https://seu.edu.bd/api-docs
+  [200] https://seu.edu.bd/web.config
+  [200] https://seu.edu.bd/phpinfo.php
+  [200] https://seu.edu.bd/info.php
+  [200] https://seu.edu.bd/server-info
+  [200] https://seu.edu.bd/wp-login.php
+  [302] https://seu.edu.bd/administrator
+  [200] https://seu.edu.bd/server-status
+  [302] https://seu.edu.bd/admin
+  [302] https://seu.edu.bd/wp-admin
+  [200] https://seu.edu.bd/login
+  [302] https://seu.edu.bd/phpmyadmin
+  [200] https://seu.edu.bd/config.php
+  [200] https://seu.edu.bd/config.yml
+  [200] https://seu.edu.bd/config.yaml
+  [200] https://seu.edu.bd/.DS_Store
+  [200] https://seu.edu.bd/crossdomain.xml
+  [200] https://seu.edu.bd/database.sql
+  [200] https://seu.edu.bd/backup.tar.gz
+  [200] https://seu.edu.bd/clientaccesspolicy.xml
+  [200] https://seu.edu.bd/backup.zip
+
+DISCOVERED ENDPOINTS (74 total)
+----------------------------------------------------------------------
+  https://seu.edu.bd
+  https://seu.edu.bd/analytics/page-time
+  https://seu.edu.bd/assets/images/call.svg
+  https://seu.edu.bd/assets/images/door.svg
+  https://seu.edu.bd/assets/images/error/403.png
+  https://seu.edu.bd/assets/images/error/404.png
+  https://seu.edu.bd/assets/images/error/search-not-found.png
+  https://seu.edu.bd/assets/images/error/southeast-503.png
+  https://seu.edu.bd/assets/images/error/southeast-coming-soon.png
+  https://seu.edu.bd/assets/images/mail.svg
+  https://seu.edu.bd/assets/images/news-ticker-icon.png
+  https://seu.edu.bd/assets/images/users/avatar_blue.png
+  https://seu.edu.bd/assets/libs/academicons-1.9.4/css/academicons.min.css
+  https://seu.edu.bd/bn/home
+  https://seu.edu.bd/build/assets/${n}
+  https://seu.edu.bd/build/assets/2-acros-img01-SR48-PCj.png
+  https://seu.edu.bd/build/assets/activity-DZCJGKsj.png
+  https://seu.edu.bd/build/assets/admission-hero-icon01-Ctgw7aVh.png
+  https://seu.edu.bd/build/assets/admission-hero-icon02-ImnU66aD.png
+  https://seu.edu.bd/build/assets/admission-hero-icon03-DJjJVn7Y.png
+  https://seu.edu.bd/build/assets/admission-news-01-Cmkejx0D.png
+  https://seu.edu.bd/build/assets/all-club-img01-DZvWLiHv.png
+  https://seu.edu.bd/build/assets/alumni-director-01-B2EGcNYk.jpg
+  https://seu.edu.bd/build/assets/app-1PgJIbNk.css
+  https://seu.edu.bd/build/assets/app-BL8J-2aA.css
+  https://seu.edu.bd/build/assets/app-C0yrJ2W-.js
+  https://seu.edu.bd/build/assets/authority-img01-DJqmYvBX.jpg
+  https://seu.edu.bd/build/assets/auto
+  https://seu.edu.bd/build/assets/campus-icon01-BvAOMr0v.png
+  https://seu.edu.bd/build/assets/campus-icon02-t4A4cw_1.png
+  https://seu.edu.bd/build/assets/campus-icon03-D-MCIUV5.png
+  https://seu.edu.bd/build/assets/card_down-C_irDjqH.png
+  https://seu.edu.bd/build/assets/card_down_for_mobile-zXh2X_ER.png
+  https://seu.edu.bd/build/assets/card_up-1NroWKTF.png
+  https://seu.edu.bd/build/assets/card_up_for_mobile-crWZuIJ-.png
+  https://seu.edu.bd/build/assets/club-activity-01-CQN5Js_t.png
+  https://seu.edu.bd/build/assets/content-2acros-opt02-8wv86eHT.jpg
+  https://seu.edu.bd/build/assets/content-4-across-img01-C38Il-7S.png
+  https://seu.edu.bd/build/assets/default-album-thumbnail-CtQ6uQDX.jpg
+  https://seu.edu.bd/build/assets/dept-gallery-01-Cqoa0vlf.jpg
+  https://seu.edu.bd/build/assets/dept-gallery-02-Njd2denT.jpg
+  https://seu.edu.bd/build/assets/dept-gallery-03-Bj4jyBRw.jpg
+  https://seu.edu.bd/build/assets/dept-gallery-04-Bi_RVRvj.jpg
+  https://seu.edu.bd/build/assets/dept-gallery-05-Bw9JN58Y.jpg
+  https://seu.edu.bd/build/assets/dept-gallery-06-B8HQvqMZ.jpg
+  https://seu.edu.bd/build/assets/director-01-C9qwdgWR.png
+  https://seu.edu.bd/build/assets/executive-committee-01-wyH9pZJk.png
+  https://seu.edu.bd/build/assets/footer-logo-JolSoofs.png
+  https://seu.edu.bd/build/assets/g-logo-DkFK489S.png
+  https://seu.edu.bd/build/assets/get-touch01-BkKIiJDu.png
+  https://seu.edu.bd/build/assets/get-touch02-1OXAZZU3.png
+  https://seu.edu.bd/build/assets/get-touch03-BXyFLFP6.png
+  https://seu.edu.bd/build/assets/hero-option03-img01-CTCBn_0A.png
+  https://seu.edu.bd/build/assets/hero-option03-img02-D_cLSE3D.png
+  https://seu.edu.bd/build/assets/hero-option03-img03-Dspjptr3.png
+  https://seu.edu.bd/build/assets/hero-video-img-BBLaSUp-.png
+  https://seu.edu.bd/build/assets/history-timeline-7FQVhY5K.png
+  https://seu.edu.bd/build/assets/history-timline2-BJ2PUgNR.png
+  https://seu.edu.bd/build/assets/icon-chair-ECAjkbHl.png
+  https://seu.edu.bd/build/assets/icon-mail-LDyQZTXH.png
+  https://seu.edu.bd/build/assets/icon-phone-D3lMWm_S.png
+  https://seu.edu.bd/build/assets/icon-telephone-DaHho-7I.png
+  https://seu.edu.bd/build/assets/m-logo-Pq05mHTX.png
+  https://seu.edu.bd/build/assets/new-badge-Cx9OmOmi.png
+  https://seu.edu.bd/build/assets/news-details-01-ConxM0KU.jpg
+  https://seu.edu.bd/build/assets/profile-01-DCMGatFs.png
+  https://seu.edu.bd/build/assets/profile-02-DzVZfX_a.png
+  https://seu.edu.bd/build/assets/qutation-PLPABy1L.png
+  https://seu.edu.bd/build/assets/register-profile-01-eRljYW1h.png
+  https://seu.edu.bd/build/assets/register-profile-02-C49Ficzh.png
+  https://seu.edu.bd/build/assets/top-banner-04-DprGKNnk.png
+  https://seu.edu.bd/cdn-cgi/challenge-platform/scripts/jsd/main.js
+  https://seu.edu.bd/home
+  https://seu.edu.bd/set-language
+
+JAVASCRIPT FILES (3 found)
+----------------------------------------------------------------------
+  https://seu.edu.bd/build/assets/app-C0yrJ2W-.js
+  https://seu.edu.bd/cdn-cgi/challenge-platform/scripts/jsd/main.js
+  https://seu.edu.bd/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js
+
+VULNERABILITY FINDINGS (3 total)
+======================================================================
+
+[1] [HIGH] Missing Security Header: Strict-Transport-Security
+  URL         : https://seu.edu.bd
+  Source      : custom
+  Description : Missing HSTS header allows downgrade attacks.
+  Remediation : Add: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+----------------------------------------------------------------------
+
+[2] [MEDIUM] Error/Stack Trace Disclosure: PHP notice
+  URL         : https://seu.edu.bd
+  Source      : custom
+  Description : PHP notice found in page response.
+  Evidence    : Notice:
+  Remediation : Disable detailed error messages in production. Log errors server-side only.
+----------------------------------------------------------------------
+
+[3] [LOW] Missing Security Header: Permissions-Policy
+  URL         : https://seu.edu.bd
+  Source      : custom
+  Description : Missing Permissions-Policy allows uncontrolled browser feature access.
+  Remediation : Add a Permissions-Policy header limiting camera, microphone, geolocation access.
+----------------------------------------------------------------------
+
+======================================================================
+  END OF REPORT — AutoRecon v1.0.0
+======================================================================

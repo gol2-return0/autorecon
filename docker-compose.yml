@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  autorecon:
+    build: .
+    image: autorecon:latest
+    container_name: autorecon_scan
+    volumes:
+      # Mount local reports folder to persist scan results
+      - ./reports:/autorecon/reports
+    # Override CMD at runtime:
+    # docker compose run autorecon -t example.com --html
+    network_mode: bridge
+    stdin_open: true
+    tty: true
